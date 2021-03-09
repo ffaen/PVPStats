@@ -151,8 +151,9 @@ public class Updater extends Thread {
         private void calculateRadixString(final String sOnline, final String sThis,
                                           final int pos) {
             try {
-                final int iOnline = Integer.parseInt(sOnline, 36);
-                final int iThis = Integer.parseInt(sThis, 36);
+                // we use substring here to return a String instead of a Char
+                final int iOnline = Integer.parseInt(sOnline.substring(0, 1), 36);
+                final int iThis = Integer.parseInt(sThis.substring(0, 1), 36);
                 if (iOnline == iThis) {
                     msg = false;
                     return;
